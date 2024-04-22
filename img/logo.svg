@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="397.26425mm"
+   height="97.836189mm"
+   viewBox="0 0 397.26425 97.836189"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   sodipodi:docname="logo.svg"
+   inkscape:export-filename="..\..\..\Site Web L'aventure Normande\public\img\logo.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.70110129"
+     inkscape:cx="676.0792"
+     inkscape:cy="64.897898"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <rect
+       x="13.113088"
+       y="33.392632"
+       width="153.39262"
+       height="22.109276"
+       id="rect3" />
+  </defs>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-0.94577462,-0.83788026)">
+    <text
+       xml:space="preserve"
+       style="font-size:60.8423px;line-height:0;font-family:Algerian;-inkscape-font-specification:Algerian;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;stroke-width:3.26453"
+       x="181.3284"
+       y="50.861141"
+       id="text2"
+       transform="scale(1.1000779,0.90902656)"><tspan
+         sodipodi:role="line"
+         id="tspan1"
+         x="181.32841"
+         y="50.861141"
+         style="font-size:60.8423px;fill:#e4bd00;fill-opacity:1;stroke-width:3.26453">L'aventure</tspan></text>
+    <text
+       xml:space="preserve"
+       id="text3"
+       style="font-size:21.3333px;line-height:0;font-family:Algerian;-inkscape-font-specification:Algerian;text-align:center;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3);display:inline;fill:#000000;stroke-width:1.00157"
+       transform="matrix(3.5853556,0,0,3.1590892,-122.42135,-31.728778)"><tspan
+         x="34.616949"
+         y="39.768209"
+         id="tspan3"><tspan
+           style="fill:#e5c000"
+           id="tspan2">Normande</tspan></tspan></text>
+  </g>
+</svg>
