@@ -54,8 +54,8 @@ button:hover{
 }
 
 .error{
-    background: rgb(238, 229, 182);
-    color: rgb(228,189,0);
+    background: rgb(239, 233, 198);
+    color: rgb(187, 157, 7);
     padding: 10px;
     width: 95%;
     border-radius: 5px;
