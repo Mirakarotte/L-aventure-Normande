@@ -13,6 +13,10 @@ if (isset($_SESSION['id']) && isset($_SESSION['uname'])) {
 		<link rel="stylesheet" type="text/css" href="../css/login.css">
 	</head>
 
+	<header>
+		<img src="../img/logo.png" class="logo">
+	</header>
+
 	<body>
 		<h1>Bonjour,
 			<?php echo $_SESSION['name']; ?>
