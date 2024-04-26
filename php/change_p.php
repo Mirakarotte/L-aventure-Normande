@@ -20,13 +20,13 @@ if (isset($_POST['op']) && isset($_POST['np'])
 	$c_np = validate($_POST['c_np']);
 		
 		if(empty($op)){
-			header("Location: change_password.php?error=Old Password is required");
+			header("Location: change_password.php?error=Votre ancien mot de passe est requis");
 		exit();
 		}else if(empty($np)){
-			header("Location: change_password.php?error=New Password is required");
+			header("Location: change_password.php?error=Votre nouveau mot de passe est requis");
 		exit();
 		}else if($np !== $c_np){
-			header("Location: change_password.php?error=The confirmation password  does not match");
+			header("Location: change_password.php?error=Le mot de passe de confirmation ne correspond pas");
 		exit();
 		}else {
 			// hashing the password
@@ -44,11 +44,11 @@ if (isset($_POST['op']) && isset($_POST['np'])
 									SET password='$np'
 									WHERE id='$id'";
 				mysqli_query($conn, $sql_2);
-				header("Location: change_password.php?success=Your password has been changed successfully");
+				header("Location: change_password.php?success=Votre mot de passe a été changé avec succès");
 				exit();
 
 			}else {
-				header("Location: change_password.php?error=Incorrect password");
+				header("Location: change_password.php?error=Mot de passe incorrect");
 				exit();
 			}
 

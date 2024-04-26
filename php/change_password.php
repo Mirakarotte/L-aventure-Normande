@@ -7,13 +7,13 @@ if (isset($_SESSION['id']) && isset($_SESSION['uname'])) {
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Change Password</title>
+	<title>Changer le mot de passe</title>
 	<link rel="stylesheet" href="../css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="../css/login.css">
 </head>
 <body>
 		<form action="change_p.php" method="post">
-		 	<h2>Change Password</h2>
+		 	<h2>Changer le mot de passe</h2>
 		 	<?php if (isset($_GET['error'])) { ?>
 		 		<p class="error"><?php echo $_GET['error']; ?></p>
 		 	<?php } ?>
@@ -22,26 +22,26 @@ if (isset($_SESSION['id']) && isset($_SESSION['uname'])) {
 						<p class="success"><?php echo $_GET['success']; ?></p>
 				<?php } ?>
 
-		 	<label>Old Password</label>
+		 	<label>Ancien mot de passe</label>
 		 	<input type="password" 
 		 				 name="op" 
-		 				 placeholder="Old Password">
+		 				 placeholder="Ancien mot de passe">
 		 				 <br>
 
-		 	<label>New Password</label>
+		 	<label>Nouveau mot de passe</label>
 		 	<input type="password" 
 		 				 name="np" 
-		 				 placeholder="New Password">
+		 				 placeholder="Nouveau mot de passe">
 		 				 <br>
 
-		 	<label>Confirm New Password</label>
+		 	<label>Confirmez le nouveau mot de passe</label>
 		 	<input type="password" 
 		 				 name="c_np" 
-		 				 placeholder="Confirm New Password">
+		 				 placeholder="Confirmez le nouveau mot de passe">
 		 				 <br>
 
-		 	<button type="submit">CHANGE</button>
-					<a href="home.php" class="ca">HOME</a>
+		 	<button type="submit">Sauvegarder</button>
+					<a href="profil.php" class="ca">Profil</a>
 		 </form>
 </body>
 </html>

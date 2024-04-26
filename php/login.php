@@ -15,36 +15,43 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
 	$pass = validate($_POST['password']);
 
 	if (empty($uname)) {
-		header("Location: index.php?error=User Name is required");
+		header("Location: index.php?error=Le nom d'utilisateur est requis");
 		exit();
 	}else if(empty($pass)){
-		header("Location: index.php?error=Password is required");
+		header("Location: index.php?error=Le mot de passe est requis");
 		exit();
 	}else{
-		// hashing the password
-		$pass = md5($pass);
+		// Utilisation du mot de passe haché avec bcrypt
+		$pass_hashed = password_hash($pass, PASSWORD_BCRYPT);
 
-		
-		$sql = "SELECT * FROM users WHERE uname='$uname' AND password='$pass'";
+		// Utilisation de requêtes préparées pour éviter les injections SQL
+		$sql = "SELECT * FROM users WHERE uname=?";
 
-		$result = mysqli_query($conn, $sql);
+		$stmt = mysqli_prepare($conn, $sql);
+		mysqli_stmt_bind_param($stmt, "s", $uname);
+		mysqli_stmt_execute($stmt);
+		$result = mysqli_stmt_get_result($stmt);
 
-		if (mysqli_num_rows($result) === 1) {
-			$row = mysqli_fetch_assoc($result);
-			if ($row['uname'] === $uname && $row['password'] === $pass) {
-				$_SESSION['uname'] = $row['uname'];
-				$_SESSION['name'] = $row['name'];
-				$_SESSION['id'] = $row['id'];
-				header("Location: ../page/connecte/connecte.html");
-				exit();
-			}else{
-				header("Location: index.php?error=Incorect User name or password");
-				exit();
-			}
-		}else{
-			header("Location: index.php?error=Incorect User name or password");
-			exit();
+		if ($row = mysqli_fetch_assoc($result)) {
+   	 		// Vérification du mot de passe haché
+    		if (password_verify($pass, $row['password'])) {
+        		// Authentification réussie
+        		$_SESSION['uname'] = $row['uname'];
+        		$_SESSION['name'] = $row['name'];
+        		$_SESSION['id'] = $row['id'];
+        		header("Location: ../page/connecte/connecte.html");
+        		exit();
+    		} else {
+        		// Mot de passe incorrect
+        		header("Location: index.php?error=Le nom d'utilisateur ou le mot de passe est incorrect");
+        		exit();
+    		}
+		} else {
+   			// Nom d'utilisateur introuvable
+    		header("Location: index.php?error=Le nom d'utilisateur ou le mot de passe est incorrect");
+    		exit();
 		}
+
 	}
 	
 }else{

@@ -22,48 +22,59 @@ if (isset($_POST['uname']) && isset($_POST['password'])
 
 
 	if (empty($uname)) {
-		header("Location: signup.php?error=User Name is required&$user_data");
+		header("Location: signup.php?error=Le nom d'utilisateur est requis&$user_data");
 		exit();
 	}else if(empty($pass)){
-		header("Location: signup.php?error=Password is required&$user_data");
+		header("Location: signup.php?error=Le mot de passe est requis&$user_data");
 		exit();
 	}
 	else if(empty($re_pass)){
-		header("Location: signup.php?error=Re Password is required&$user_data");
+		header("Location: signup.php?error=La confirmation du mot de passe est requise&$user_data");
 		exit();
 	}
 
 	else if(empty($name)){
-		header("Location: signup.php?error=Name is required&$user_data");
+		header("Location: signup.php?error=Le nom est requis&$user_data");
 		exit();
 	}
 
 	else if($pass !== $re_pass){
-		header("Location: signup.php?error=The confirmation password  does not match&$user_data");
+		header("Location: signup.php?error=La confirmation du mot de passe ne correspond pas&$user_data");
 		exit();
 	}
 
 	else{
 
-		// hashing the password
-		$pass = md5($pass);
+		// Utilisation de la fonction de hachage bcrypt
+		$pass_hashed = password_hash($pass, PASSWORD_DEFAULT);
 
-		$sql = "SELECT * FROM users WHERE uname='$uname' ";
-		$result = mysqli_query($conn, $sql);
+		// Utilisation de requêtes préparées pour éviter les injections SQL
+		$sql = "SELECT * FROM users WHERE uname=?";
+		$stmt = mysqli_prepare($conn, $sql);
+		mysqli_stmt_bind_param($stmt, "s", $uname);
+		mysqli_stmt_execute($stmt);
+		$result = mysqli_stmt_get_result($stmt);
 
 		if (mysqli_num_rows($result) > 0) {
-			header("Location: signup.php?error=The username is taken try another&$user_data");
-			exit();
-		}else {
-		   $sql2 = "INSERT INTO users(uname, password, name) VALUES ('$uname', '$pass', '$name')";
-		   $result2 = mysqli_query($conn, $sql2);
-		   if ($result2) {
-		   	 header("Location: signup.php?success=Your account has been created successfully");
-			 exit();
-		   }else {
-			   	header("Location: signup.php?error=unknown error occurred&$user_data");
-				exit();
-		   }
+    		// Nom d'utilisateur déjà pris
+   			header("Location: signup.php?error=Le nom d'utilisateur est déjà prit. Essayez-en un autre.");
+    		exit();
+		} else {
+    		// Insertion de l'utilisateur dans la base de données
+    		$sql2 = "INSERT INTO users(uname, password, name) VALUES (?, ?, ?)";
+   			$stmt2 = mysqli_prepare($conn, $sql2);
+    		mysqli_stmt_bind_param($stmt2, "sss", $uname, $pass_hashed, $name);
+    		$result2 = mysqli_stmt_execute($stmt2);
+
+    		if ($result2) {
+        		// Compte créé avec succès
+        		header("Location: signup.php?success=Votre compte a été créé avec succès");
+        		exit();
+    		} else {
+        		// Erreur lors de l'insertion dans la base de données
+        		header("Location: signup.php?error=Une erreur inconnue s'est produite");
+        		exit();
+    		}
 		}
 	}
 	

@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>SIGN UP</title>
+	<title>S'inscrire</title>
 	<link rel="stylesheet" href="../css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="../css/login.css">
 </head>
 <body>
 	<form action="signup_check.php" method="post">
-		<h2>SIGN UP</h2>
+		<h2>S'INSCRIRE</h2>
 		<?php if (isset($_GET['error'])) { ?>
 			<p class="error"><?php echo $_GET['error']; ?></p>
 		<?php } ?>
@@ -16,43 +16,43 @@
 			<p class="success"><?php echo $_GET['success']; ?></p>
 		<?php } ?>
 
-		<label>Name</label>
+		<label>Nom</label>
 		<?php if (isset($_GET['name'])) { ?>
 			<input type="text" 
 				  name="name" 
-				  placeholder="Name"
+				  placeholder="Nom"
 				  value="<?php echo $_GET['name']; ?>"><br>
 		<?php }else{ ?>
 			<input type="text" 
 				  name="name" 
-				  placeholder="Name"><br>
+				  placeholder="Nom"><br>
 		<?php }?>
 
-		<label>User Name</label>
+		<label>Nom d'utilisateur</label>
 		<?php if (isset($_GET['uname'])) { ?>
 			<input type="text" 
 				  name="uname" 
-				  placeholder="User Name"
+				  placeholder="Nom d'utilisateur"
 				  value="<?php echo $_GET['uname']; ?>"><br>
 		<?php }else{ ?>
 			<input type="text" 
 				  name="uname" 
-				  placeholder="User Name"><br>
+				  placeholder="Nom d'utilisateur"><br>
 		<?php }?>
 
 
-		<label>Password</label>
+		<label>Mot de passe</label>
 		<input type="password" 
 			  name="password" 
-			  placeholder="Password"><br>
+			  placeholder="Mot de passe"><br>
 
-		<label>Re Password</label>
+		<label>Confirmation du mot de passe</label>
 		<input type="password" 
 			  name="re_password" 
-			  placeholder="Re_Password"><br>
+			  placeholder="Confirmation du mot de passe"><br>
 
-		<button type="submit">Sign Up</button>
-		<a href="index.php" class="ca">Already have an account?</a>
+		<button type="submit">S'inscrire</button>
+		<a href="index.php" class="ca">Vous avez déjà un compte ?</a>
 	</form>
 </body>
 </html>

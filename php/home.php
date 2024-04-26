@@ -18,9 +18,9 @@ if (isset($_SESSION['id']) && isset($_SESSION['uname'])) {
 			<?php echo $_SESSION['name']; ?>
 		</h1>
 		<nav class="home-nav">
-			<a href="change_password.php">Change Password</a>
-			<a href="logout.php">Logout</a>
-			<a href="delete.php?delete=" .$id>Delete</a>
+			<a href="change_password.php">Changer le mot de passe</a>
+			<a href="logout.php">Deconnexion</a>
+			<a href="delete.php?delete=" .$id>Supprimer le compte</a>
 		</nav>
 
 	</body>

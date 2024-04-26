@@ -17,7 +17,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['uname'])) {
 		 	<?php if (isset($_GET['success'])) { ?>
 						<p class="success"><?php echo $_GET['success']; ?></p>
 				<?php } ?>
-					<a href="index.php" class="ca">LOGIN</a>
+					<a href="index.php" class="ca">CONNEXION</a>
 		 </form>
 </body>
 </html>
