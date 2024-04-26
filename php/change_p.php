@@ -30,7 +30,7 @@ if (isset($_POST['op']) && isset($_POST['np'])
 		exit();
 		}else {
 			// hashing the password
-			$op = md5($op);
+			/*$op = md5($op);
 			$np = md5($np);
 			$id = $_SESSION['id'];
 
@@ -50,6 +50,33 @@ if (isset($_POST['op']) && isset($_POST['np'])
 			}else {
 				header("Location: change_password.php?error=Mot de passe incorrect");
 				exit();
+			}*/
+			// Utilisation de fonctions de hachage sécurisées
+			$op_hashed = md5($op);
+			$np_hashed = md5($np);
+
+			$id = $_SESSION['id'];
+
+			// Utilisation de requêtes préparées pour éviter les injections SQL
+			$sql = "SELECT password FROM users WHERE id=? AND password=?";
+			$stmt = mysqli_prepare($conn, $sql);
+			mysqli_stmt_bind_param($stmt, "is", $id, $op_hashed);
+			mysqli_stmt_execute($stmt);
+			$result = mysqli_stmt_get_result($stmt);
+
+			if (mysqli_num_rows($result) === 1) {
+    			// Mise à jour du mot de passe
+    			$sql_2 = "UPDATE users SET password=? WHERE id=?";
+    			$stmt_2 = mysqli_prepare($conn, $sql_2);
+    			mysqli_stmt_bind_param($stmt_2, "si", $np_hashed, $id);
+    			mysqli_stmt_execute($stmt_2);
+
+    			header("Location: change_password.php?success=Votre mot de passe a été changé avec succès");
+    			exit();
+			} else {
+    			// Mot de passe incorrect
+    			header("Location: change_password.php?error=Mot de passe incorrect");
+    			exit();
 			}
 
 		}

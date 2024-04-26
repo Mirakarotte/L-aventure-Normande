@@ -17,21 +17,17 @@ if (isset($_SESSION['id']) && isset($_SESSION['uname'])) {
 	
 
 	<body>
-		<header>
-			<img src="../img/logo.png">
-		</header>
-
-		<main>
+			<div class="img">
+				<img src="../img/logo.png">
+			</div>
 			<h1>Bonjour,
 				<?php echo $_SESSION['name']; ?>
 			</h1>
 			<nav class="home-nav">
-				<a href="change_password.php">Changer le mot de passe</a>
-				<a href="logout.php">Deconnexion</a>
-				<a href="delete.php?delete=" .$id>Supprimer le compte</a>
+				<a href="change_password.php"><strong>Changer le mot de passe</strong></a>
+				<a href="logout.php"><strong>Deconnexion</strong></a>
+				<a href="delete.php?delete=" .$id><strong>Supprimer le compte</strong></a>
 			</nav>
-		</main>
-
 	</body>
 
 	</html>

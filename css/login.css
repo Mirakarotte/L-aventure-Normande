@@ -7,7 +7,14 @@ body{
     flex-direction: column;
 }
 
+img{
+    width: 40%;
+}
 
+.img{
+    display: flex;
+    justify-content: center;
+}
 
 *{
     box-sizing: border-box;
