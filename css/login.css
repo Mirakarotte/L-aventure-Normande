@@ -7,10 +7,7 @@ body{
     flex-direction: column;
 }
 
-img{
-    padding-top: 2%;
-    width: 2%;
-}
+
 
 *{
     box-sizing: border-box;
