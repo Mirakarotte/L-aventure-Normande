@@ -7,9 +7,9 @@ body{
     flex-direction: column;
 }
 
-.logo{
+img{
     padding-top: 2%;
-    width: 10%;
+    width: 2%;
 }
 
 *{
