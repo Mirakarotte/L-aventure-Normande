@@ -1,5 +1,5 @@
 body{
-    background-color: #fe655a;
+    background-color: #F44336;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -55,7 +55,7 @@ button:hover{
 
 .error{
     background: rgb(239, 233, 198);
-    color: rgb(187, 157, 7);
+    color: rgb(229, 197, 40);
     padding: 10px;
     width: 95%;
     border-radius: 5px;
@@ -90,7 +90,7 @@ h1{
 
 .home-nav a{
     padding: 10px;
-    color: rgb(187, 157, 7);
+    color: rgb(229, 197, 40);
     text-transform: uppercase;
     text-decoration: none;
 }
